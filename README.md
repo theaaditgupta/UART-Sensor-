@@ -95,18 +95,6 @@ Without wear-levelling, a device logging every 10 minutes would write to the sam
 
 ---
 
-## On real hardware
-
-The firmware targets STM32F4 (Cortex-M4, 168 MHz). To build for the target:
-
-1. Install ARM GCC toolchain: `arm-none-eabi-gcc`
-2. Update `Makefile` with `CC = arm-none-eabi-gcc` and appropriate `-mcpu` flags
-3. Add STM32F4 CMSIS headers and startup files
-4. Replace simulation `DISABLE_IRQS` / `ENABLE_IRQS` macros with `__disable_irq()` / `__enable_irq()`
-5. Replace `power_record_*` calls with actual `SCB->SCR` and `WFI` instructions
-
----
-
 ## File structure
 
 ```
